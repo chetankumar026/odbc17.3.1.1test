@@ -21,12 +21,7 @@ RUN yum -y update && \
     curl -sSL -O https://packages.microsoft.com/config/rhel/7/prod.repo && \
     mv prod.repo /etc/yum.repos.d/mssql-release.repo && \
     ACCEPT_EULA=Y yum -y install msodbcsql17-17.3.1.1-1
-  # Install dependencies (pyobdc)
-  pip install --upgrade pip && \
-  pip install -r requirements.txt && rm requirements.txt && \
-  # Cleanup build dependencies
-  apt-get remove -y curl apt-transport-https debconf-utils g++ gcc rsync unixodbc-dev build-essential gnupg2 && \
-  apt-get autoremove -y && apt-get autoclean -y
+ 
 
 # STAGE: test
 # -----------
